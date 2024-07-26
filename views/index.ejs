@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <h2>JOKE GENERATOR</h2>
+    <div class="container">
+      <form method="POST" action="/get-joke">
+        <fieldset>
+          <legend>Joke Options</legend>
+          <div class="option-set">
+            <p>Categories:</p>
+            <div class="input-set">
+              <input class="cat-radio" id="any-input" type="radio" id="any" name="categories" value="Any" checked>
+              <label for="any">Any</label>
+              <input class="cat-radio" id="custom-input" type="radio" id="custom" name="categories" value="Custom">
+              <label  for="custom">Custom:</label>
+              <div id="customs">
+                <input class="custom-cat" type="checkbox" id="programming" name="customCategories" value="Programming">
+                <label for="programming">Programming</label>
+                <input class="custom-cat" type="checkbox" id="miscellaneous" name="customCategories" value="Misc">
+                <label for="miscellaneous">Miscellaneous</label>
+                <input class="custom-cat" type="checkbox" id="dark" name="customCategories" value="Dark">
+                <label for="dark">Dark</label>
+                <input class="custom-cat" type="checkbox" id="pun" name="customCategories" value="Pun">
+                <label for="pun">Pun</label>
+              </div>
+            </div>
+          </div>
+          <div class="option-set">
+            <p>I do NOT want jokes that are:</p>
+            <div class="input-set">
+              <input class="black-list" type="checkbox" id="nsfw" name="blacklist" value="nsfw">
+              <label for="nsfw">nsfw</label>
+              <input class="black-list" type="checkbox" id="religious" name="blacklist" value="religious">
+              <label for="religious">religious</label>
+              <input class="black-list" type="checkbox" id="political" name="blacklist" value="political">
+              <label for="political">political</label>
+              <input class="black-list" type="checkbox" id="racist" name="blacklist" value="racist">
+              <label for="racist">racist</label>
+              <input class="black-list" type="checkbox" id="sexist" name="blacklist" value="sexist">
+              <label for="sexist">sexist</label>
+            </div>
+          </div>
+          <div class="option-set">
+            <p>Joke type:</p>
+            <div class="input-set">
+              <input class="joke-type" type="checkbox" id="single" name="jokeType" value="single">
+              <label for="single">one-liner</label>
+              <input class="joke-type" type="checkbox" id="twopart" name="jokeType" value="twopart">
+              <label for="twopart">two-parter</label>
+            </div>
+          </div>
+          <input id="submit" type="submit" value="Generate Humor">
+        </fieldset>
+      </form>
+      <div class="wrapper">
+        <!-- <span>Your source of laughter </span> -->
+         <% if(locals.joke){ %>
+          <p id="joke"><%= joke%></p>
+        <% } %>
+        <!-- <button id="btn">Generate Joke</button> -->
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- <script src="../index.js"></script> -->
+  </body>
+</html>
